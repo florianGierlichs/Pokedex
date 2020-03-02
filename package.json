@@ -1,0 +1,20 @@
+{
+  "name": "pokedex",
+  "version": "1.0.0",
+  "description": "Pokedex example",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/florianGierlichs/Pokedex.git"
+  },
+  "keywords": [],
+  "author": "Florian Gierlichs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/florianGierlichs/Pokedex/issues"
+  },
+  "homepage": "https://github.com/florianGierlichs/Pokedex#readme"
+}
