@@ -2,6 +2,9 @@ import "./app.scss";
 import { createElement } from "./lib/dom";
 import { title } from "./components/title";
 import { search } from "./components/search";
+import { pokemons } from "./components/pokemons";
+
+const allPokemons = ["Pikachu", "Pichu", "Marwinchu", "Juliachu", "Johannachu"];
 
 export function app() {
   const header = createElement("header", {
@@ -13,16 +16,23 @@ export function app() {
   const titleElement = title("Pokedex");
   const searchElement = search();
 
-  const searchOutput = createElement("div", {
-    className: "searchOutput"
-  });
-
   header.appendChild(titleElement);
   main.appendChild(searchElement);
-  main.appendChild(searchOutput);
 
-  searchElement.addEventListener("search", () => {
-    searchOutput.innerText = searchElement.value;
+  const searchResults = createElement("div", {});
+  main.appendChild(searchResults);
+
+  searchElement.addEventListener("input", event => {
+    searchResults.innerHTML = "";
+
+    const searchValue = event.target.value;
+
+    const filteredPokemons = allPokemons.filter(pokemon => {
+      return pokemon.startsWith(searchValue);
+    });
+
+    const pokemonsElement = pokemons(filteredPokemons);
+    searchResults.appendChild(pokemonsElement);
   });
 
   return [header, main];
