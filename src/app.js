@@ -5,7 +5,15 @@ import { appendContent } from "./lib/dom";
 import { search } from "./components/search";
 import { pokemons } from "./components/pokemons";
 
-const allPokemons = ["Pikachu", "Pichu", "Marwinchu", "Juliachu", "Johannachu"];
+const allPokemons = [
+  "Pikachu",
+  "Pichu",
+  "Marwinchu",
+  "Juliachu",
+  "Johannachu",
+  "Sehrlangername",
+  "nochlängerersehrlangername"
+];
 
 export function app() {
   const header = createElement("header", {
@@ -14,16 +22,16 @@ export function app() {
   const main = createElement("main", {
     className: "main"
   });
-  const titleElement = title("Pokedex");
-  const searchElement = search();
+  const brand = title("Pokédex");
+  const searchBar = search();
 
-  appendContent(header, titleElement);
-  main.appendChild(searchElement);
+  appendContent(header, brand);
+  main.appendChild(searchBar);
 
   const searchResults = createElement("div", {});
   main.appendChild(searchResults);
 
-  searchElement.addEventListener("input", event => {
+  searchBar.addEventListener("input", event => {
     searchResults.innerHTML = "";
 
     const searchValue = event.target.value;

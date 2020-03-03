@@ -1,8 +1,11 @@
+@use 'variables';
+
 .pokemons {
   margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  width: 500px;
 }
 
 .pokemon {
@@ -10,8 +13,8 @@
   text-transform: uppercase;
   text-align: center;
   margin: 4px;
-  border: 1px solid green;
+  border: 1px solid variables.$primary-color;
   padding: 4px;
   border-radius: 0.25rem;
-  background: rgb(49, 158, 116);
+  background: variables.$secondary-color;
 }

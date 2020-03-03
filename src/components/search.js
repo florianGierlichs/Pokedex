@@ -4,7 +4,7 @@ import { createElement } from "../lib/dom";
 export function search() {
   const element = createElement("input", {
     className: "search",
-    placeholder: "search here please",
+    placeholder: "search for Pokémon",
     type: "search"
   });
 

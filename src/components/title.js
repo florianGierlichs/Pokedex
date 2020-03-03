@@ -13,5 +13,5 @@ export function title(text) {
     className: "title"
   });
 
-  return [element, image];
+  return [image, element];
 }

@@ -1,4 +1,7 @@
+@use 'variables';
+
 .search {
-  background-color: yellowgreen;
-  font-size: 1.3rem;
+  background-color: variables.$secondary-color;
+  font-size: 1.5rem;
+  padding: 5px;
 }
