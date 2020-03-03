@@ -1,8 +1,12 @@
-@use './components/variables';
-
-$body-color: rgb(17, 0, 255);
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
 
 body {
-  color: $body-color;
-  background-color: variables.$test-color-green;
+  max-width: 960px;
+  margin: 0 auto;
+  background-image: radial-gradient(rgb(236, 73, 114) 2%, rgb(49, 99, 238));
+  height: 100vh;
 }

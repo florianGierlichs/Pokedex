@@ -4,7 +4,7 @@ import { createElement } from "../lib/dom";
 export function search() {
   const element = createElement("input", {
     className: "search",
-    placeholder: "search here",
+    placeholder: "search here please",
     type: "search"
   });
 
