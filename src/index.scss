@@ -1,5 +1,8 @@
+@use './components/variables';
+
 $body-color: rgb(17, 0, 255);
 
 body {
   color: $body-color;
+  background-color: variables.$test-color-green;
 }
