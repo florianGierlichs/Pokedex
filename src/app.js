@@ -1,6 +1,7 @@
 import "./app.scss";
 import { createElement } from "./lib/dom";
 import { title } from "./components/title";
+import { appendContent } from "./lib/dom";
 import { search } from "./components/search";
 import { pokemons } from "./components/pokemons";
 
@@ -16,7 +17,7 @@ export function app() {
   const titleElement = title("Pokedex");
   const searchElement = search();
 
-  header.appendChild(titleElement);
+  appendContent(header, titleElement);
   main.appendChild(searchElement);
 
   const searchResults = createElement("div", {});
