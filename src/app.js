@@ -13,12 +13,17 @@ export function app() {
   const titleElement = title("Pokedex");
   const searchElement = search();
 
+  const searchOutput = createElement("div", {
+    className: "searchOutput"
+  });
+
   header.appendChild(titleElement);
   main.appendChild(searchElement);
+  main.appendChild(searchOutput);
+
+  searchElement.addEventListener("search", () => {
+    searchOutput.innerText = searchElement.value;
+  });
 
   return [header, main];
 }
-
-// export function image() {
-//     const logo = createElement()
-// }
