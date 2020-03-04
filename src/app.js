@@ -34,10 +34,10 @@ export function app() {
   searchBar.addEventListener("input", event => {
     searchResults.innerHTML = "";
 
-    const searchValue = event.target.value;
+    const searchValue = event.target.value.toLowerCase();
 
     const filteredPokemons = allPokemons.filter(pokemon => {
-      return pokemon.startsWith(searchValue);
+      return pokemon.toLowerCase().startsWith(searchValue);
     });
 
     const pokemonsElement = pokemons(filteredPokemons);
