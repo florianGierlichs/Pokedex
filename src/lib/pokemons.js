@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-undef
 const pokemon = require("pokemon");
 const allRealPokemons = pokemon.all().slice(0, 150);
 const allPokemons = allRealPokemons;
