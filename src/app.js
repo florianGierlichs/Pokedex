@@ -14,7 +14,9 @@ export function app() {
     className: "main"
   });
   const brand = title("Pokédex");
-  const searchBar = search(sessionStorage.getItem("searchValue"));
+  const searchBar = search({
+    value: sessionStorage.getItem("searchValue")
+  });
 
   let searchResults = null;
   const setSearchResults = () => {
