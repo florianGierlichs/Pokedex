@@ -1,12 +1,6 @@
-const allPokemons = [
-  "Pikachu",
-  "Pichu",
-  "Marwinchu",
-  "Juliachu",
-  "Johannachu",
-  "Sehrlangername",
-  "nochlängerersehrlangername"
-];
+const pokemon = require("pokemon");
+const allRealPokemons = pokemon.all().slice(0, 150);
+const allPokemons = allRealPokemons;
 
 export const filterPokemons = searchValue => {
   const lowerCaseSearchValue = searchValue.toLowerCase();
