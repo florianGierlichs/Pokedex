@@ -23,7 +23,7 @@ export function app() {
     className: "main"
   });
   const brand = title("Pokédex");
-  const searchBar = search();
+  const searchBar = search(sessionStorage.getItem("searchValue"));
 
   appendContent(header, brand);
   main.appendChild(searchBar);
@@ -34,14 +34,16 @@ export function app() {
   searchBar.addEventListener("input", event => {
     searchResults.innerHTML = "";
 
-    const searchValue = event.target.value.toLowerCase();
+    const searchValue = event.target.value;
+    const lowerCaseSearchValue = searchValue.toLowerCase();
 
     const filteredPokemons = allPokemons.filter(pokemon => {
-      return pokemon.toLowerCase().includes(searchValue);
+      return pokemon.toLowerCase().includes(lowerCaseSearchValue);
     });
 
     const pokemonsElement = pokemons(filteredPokemons);
     searchResults.appendChild(pokemonsElement);
+    sessionStorage.setItem("searchValue", searchValue);
   });
 
   return [header, main];
