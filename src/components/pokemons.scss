@@ -16,4 +16,8 @@
   padding: 4px;
   border-radius: 0.25rem;
   background: variables.$secondary-color;
+
+  &:active {
+    background-color: green;
+  }
 }
