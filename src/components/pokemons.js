@@ -1,7 +1,7 @@
 import "./pokemons.scss";
 import { createElement } from "../lib/dom";
 
-export function createPokemons(items) {
+export function createSearchResult(items) {
   const container = createElement("div", {
     className: "pokemons"
   });
