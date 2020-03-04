@@ -3,26 +3,8 @@ import { createElement } from "./lib/dom";
 import { title } from "./components/title";
 import { appendContent } from "./lib/dom";
 import { search } from "./components/search";
-import { createPokemons } from "./components/pokemons";
-
-const allPokemons = [
-  "Pikachu",
-  "Pichu",
-  "Marwinchu",
-  "Juliachu",
-  "Johannachu",
-  "Sehrlangername",
-  "nochlängerersehrlangername"
-];
-
-const filterPokemons = searchValue => {
-  const lowerCaseSearchValue = searchValue.toLowerCase();
-
-  const filteredPokemons = allPokemons.filter(pokemon => {
-    return pokemon.toLowerCase().includes(lowerCaseSearchValue);
-  });
-  return filteredPokemons;
-};
+import { createSearchResult } from "./components/pokemons";
+import { filterPokemons } from "./lib/pokemons";
 
 export function app() {
   const header = createElement("header", {
@@ -32,22 +14,24 @@ export function app() {
     className: "main"
   });
   const brand = title("Pokédex");
-  const searchBar = search(sessionStorage.getItem("searchValue"));
+  const searchBar = search({
+    value: sessionStorage.getItem("searchValue")
+  });
 
-  let pokemons = null;
+  let searchResults = null;
   const setSearchResults = () => {
     const filteredPokemons = filterPokemons(searchBar.value);
-    pokemons = createPokemons(filteredPokemons);
-    appendContent(main, pokemons);
+    searchResults = createSearchResult(filteredPokemons);
+    appendContent(main, searchResults);
   };
 
   setSearchResults();
 
   appendContent(header, brand);
-  appendContent(main, [searchBar, pokemons]);
+  appendContent(main, [searchBar, searchResults]);
 
   searchBar.addEventListener("input", event => {
-    main.removeChild(pokemons);
+    main.removeChild(searchResults);
     setSearchResults();
 
     const searchValue = event.target.value;
