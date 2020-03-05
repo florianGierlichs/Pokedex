@@ -6,7 +6,7 @@ export function createSearchResult(props) {
     className: "pokemons"
   });
 
-  props.forEach(item => {
+  props.items.forEach(item => {
     const element = createElement("div", {
       innerText: item,
       className: "pokemon"
