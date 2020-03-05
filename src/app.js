@@ -60,7 +60,7 @@ export function app() {
       items: filteredPokemons,
       onSearchResultClick: handleSearchResultClick
     });
-
+  }
   const setSearchResults = async () => {
     const filteredPokemons = await filterPokemons(searchBar.value);
     searchResults = createSearchResult(filteredPokemons);
