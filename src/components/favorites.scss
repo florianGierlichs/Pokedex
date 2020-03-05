@@ -1,0 +1,15 @@
+@use 'variables';
+
+.favorites {
+  height: 100px;
+  width: 500px;
+  background-color: variables.$primary-color;
+  display: flex;
+}
+
+.favorite {
+  text-align: center;
+  width: 100px;
+  background-color: green;
+  margin: 5px;
+}

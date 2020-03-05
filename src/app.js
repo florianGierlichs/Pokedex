@@ -5,6 +5,7 @@ import { appendContent } from "./lib/dom";
 import { search } from "./components/search";
 import { createSearchResult } from "./components/pokemons";
 import { filterPokemons } from "./lib/pokemons";
+import { createFavorites } from "./components/favorites";
 
 export function app() {
   const header = createElement("header", {
@@ -16,6 +17,10 @@ export function app() {
   const brand = title("Pokédex");
   const searchBar = search({
     value: sessionStorage.getItem("searchValue")
+  });
+
+  const favorites = createFavorites({
+    items: ["pikachu", "raichu"]
   });
 
   let searchResults = null;
@@ -39,5 +44,5 @@ export function app() {
     sessionStorage.setItem("searchValue", searchValue);
   });
 
-  return [header, main];
+  return [header, main, favorites];
 }
