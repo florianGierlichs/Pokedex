@@ -53,19 +53,25 @@ export function app() {
   }
 
   let searchResults = null;
+
   const setSearchResults = () => {
     const filteredPokemons = filterPokemons(searchBar.value);
     searchResults = createSearchResult({
       items: filteredPokemons,
       onSearchResultClick: handleSearchResultClick
     });
+
+  const setSearchResults = async () => {
+    const filteredPokemons = await filterPokemons(searchBar.value);
+    searchResults = createSearchResult(filteredPokemons);
+
     appendContent(main, searchResults);
   };
 
   setSearchResults();
 
   appendContent(header, brand);
-  appendContent(main, [searchBar, searchResults]);
+  appendContent(main, [searchBar, searchBar]);
 
   searchBar.addEventListener("input", event => {
     main.removeChild(searchResults);
