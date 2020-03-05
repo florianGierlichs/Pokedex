@@ -1,4 +1,4 @@
-import pokemon from 'pokemon'
+import pokemon from "pokemon";
 const allRealPokemons = pokemon.all().slice(0, 150);
 const allPokemons = allRealPokemons;
 
