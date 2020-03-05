@@ -76,5 +76,5 @@ export function app() {
     sessionStorage.setItem("searchValue", searchValue);
   });
 
-  return [header, main, favorites];
+  return [header, main, favoritesContainer];
 }
