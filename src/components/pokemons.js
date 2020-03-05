@@ -13,7 +13,14 @@ export function createSearchResult(items) {
     });
     element.addEventListener("click", () => {
       const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-      favorites.push(item);
+
+      if (!favorites.include(item)) {
+        favorites.push(item);
+      } else {
+        const itemIndex = favorites.indexOf(item);
+        favorites.splice(itemIndex, 1);
+      }
+
       const favoritesJSON = JSON.stringify(favorites);
       localStorage.setItem("favorites", favoritesJSON);
     });
